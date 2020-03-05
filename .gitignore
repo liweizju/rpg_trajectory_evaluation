@@ -3,3 +3,4 @@
 *.pyc
 *.xml
 .idea/
+results/ov_test/

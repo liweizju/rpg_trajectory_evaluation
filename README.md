@@ -1,3 +1,13 @@
+Add a new plot script (analysis_trajectories_batch.py) for better visualized comparison. Try it out!
+
+```
+python2 analysis_trajectories_batch.py ../results/samples --align_mode posyaw --output_folder ../results/samples/
+```
+
+The folder 'samples' are organized as: datasets->algorithms->runs;
+
+
+# The below is the original readme.
 # rpg_trajectory_evaluation
 
 This repository implements common used trajectory evaluation methods for visual(-inertial) odometry. Specifically, it includes

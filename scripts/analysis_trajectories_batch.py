@@ -254,11 +254,11 @@ if __name__=="__main__":
     assert os.path.exists(args.result_folder), "gt_folder not exist!!!"
     assert len(os.listdir(args.result_folder)) > 0, "gt_folder EMPTY!!!"
 
-    dataset_errors = np.load('../results/ov_test/whole_errors_default_subtraj.npy', allow_pickle=True).item()
-    plot_abs_errors(dataset_errors, output_dir=args.output_folder)
-    plot_travel_errors(dataset_errors, output_dir=args.output_folder)
-    plot_rel_errors(dataset_errors, output_dir=args.output_folder)
-    exit(0)
+    # dataset_errors = np.load('../results/samples/whole_errors_default_subtraj.npy', allow_pickle=True).item()
+    # plot_abs_errors(dataset_errors, output_dir=args.output_folder)
+    # plot_travel_errors(dataset_errors, output_dir=args.output_folder)
+    # plot_rel_errors(dataset_errors, output_dir=args.output_folder)
+    # exit(0)
 
     datasets = [name for name in os.listdir(args.result_folder) if os.path.isdir(os.path.join(args.result_folder, name))]
     datasets.sort()
@@ -298,7 +298,11 @@ if __name__=="__main__":
 
         # structure: datasets->algorithms->errors
         dataset_errors[dataset] = algo_errors
-    np.save('whole_errors_default_subtraj.npy', dataset_errors)
+    # may cache the trajectories results;
+    # np.save('whole_errors_default_subtraj.npy', dataset_errors)
+    plot_abs_errors(dataset_errors, output_dir=args.output_folder)
+    plot_travel_errors(dataset_errors, output_dir=args.output_folder)
+    plot_rel_errors(dataset_errors, output_dir=args.output_folder)
 
 
 
